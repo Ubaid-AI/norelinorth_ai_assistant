@@ -8,7 +8,7 @@ from unittest.mock import MagicMock, patch
 
 import frappe
 
-from ai_assistant.doctype_hooks import inject_ai_assistant, validate_ai_permission
+from norelinorth_ai_assistant.doctype_hooks import inject_ai_assistant, validate_ai_permission
 
 
 class TestDocTypeHooks(unittest.TestCase):

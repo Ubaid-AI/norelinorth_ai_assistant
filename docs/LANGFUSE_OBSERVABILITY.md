@@ -46,7 +46,7 @@ Following the same pattern as AI Provider configuration, Langfuse observability 
 Run this in bench console:
 
 ```python
-from ai_assistant.ai_observability import validate_langfuse_config
+from norelinorth_ai_assistant.ai_observability import validate_langfuse_config
 result = validate_langfuse_config()
 print(result)
 ```
@@ -70,7 +70,7 @@ Expected output when configured:
 
 ```python
 # Your existing code - no changes needed!
-from ai_assistant.ai_provider_api import call_ai
+from norelinorth_ai_assistant.ai_provider_api import call_ai
 
 # This call is automatically traced to Langfuse if enabled
 response = call_ai(
@@ -150,7 +150,7 @@ ai_assistant/
 Validate Langfuse configuration and status.
 
 ```python
-from ai_assistant.ai_observability import validate_langfuse_config
+from norelinorth_ai_assistant.ai_observability import validate_langfuse_config
 
 result = validate_langfuse_config()
 # Returns: {"enabled": bool, "configured": bool, "status": str, "message": str}
@@ -167,7 +167,7 @@ result = validate_langfuse_config()
 Get Langfuse client instance (for advanced use cases).
 
 ```python
-from ai_assistant.ai_observability import get_langfuse_client
+from norelinorth_ai_assistant.ai_observability import get_langfuse_client
 
 client = get_langfuse_client()
 if client:
@@ -180,7 +180,7 @@ if client:
 Create a custom trace (for advanced use cases).
 
 ```python
-from ai_assistant.ai_observability import create_trace
+from norelinorth_ai_assistant.ai_observability import create_trace
 
 trace = create_trace(
     name="custom_workflow",
@@ -193,7 +193,7 @@ trace = create_trace(
 Manually flush pending Langfuse events.
 
 ```python
-from ai_assistant.ai_observability import flush_langfuse
+from norelinorth_ai_assistant.ai_observability import flush_langfuse
 
 flush_langfuse()  # Ensure all events sent before process exit
 ```
@@ -205,7 +205,7 @@ flush_langfuse()  # Ensure all events sent before process exit
 ```python
 # journal_validation/journal_validation/api.py
 
-from ai_assistant.ai_provider_api import call_ai
+from norelinorth_ai_assistant.ai_provider_api import call_ai
 import json
 
 @frappe.whitelist()
@@ -358,7 +358,7 @@ Configure Langfuse alerts for:
 Add custom tags via metadata for filtering:
 
 ```python
-from ai_assistant.ai_observability import create_trace
+from norelinorth_ai_assistant.ai_observability import create_trace
 
 trace = create_trace(
     name="journal_validation",

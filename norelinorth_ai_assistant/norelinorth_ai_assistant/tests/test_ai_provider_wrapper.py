@@ -8,7 +8,7 @@ from unittest.mock import MagicMock, patch
 
 import frappe
 
-from ai_assistant.ai_provider_wrapper import call_ai, generate_text
+from norelinorth_ai_assistant.ai_provider_wrapper import call_ai, generate_text
 
 
 class TestAIProviderWrapper(unittest.TestCase):

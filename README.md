@@ -29,8 +29,8 @@ AI Assistant provides context-aware AI chat capabilities directly within your ER
 ## Installation
 
 ```bash
-bench get-app https://github.com/norelinorth/ai_assistant
-bench --site yoursite.local install-app ai_assistant
+bench get-app https://github.com/norelinorth/norelinorth_ai_assistant
+bench --site yoursite.local install-app norelinorth_ai_assistant
 ```
 
 ## Configuration
@@ -68,7 +68,7 @@ See [LANGFUSE_OBSERVABILITY.md](docs/LANGFUSE_OBSERVABILITY.md) for detailed set
 ### Using AI from Other Apps
 
 ```python
-from ai_assistant.ai_provider_api import call_ai
+from norelinorth_ai_assistant.ai_provider_api import call_ai
 
 response = call_ai(
     prompt="Analyze this data",
@@ -76,12 +76,10 @@ response = call_ai(
 )
 ```
 
-See [USAGE_FOR_OTHER_APPS.md](ai_assistant/ai_assistant/USAGE_FOR_OTHER_APPS.md) for detailed examples.
-
 ### Architecture
 
 ```
-ai_assistant/
+norelinorth_ai_assistant/
 ├── AI Provider (Singles DocType)     # Shared configuration
 ├── ai_provider_api.py                # API functions for all apps
 ├── ai_observability.py               # Langfuse integration
@@ -99,8 +97,8 @@ ai_assistant/
 
 ## Support
 
-- Issues: [GitHub Issues](https://github.com/norelinorth/ai_assistant/issues)
-- Documentation: [GitHub Repository](https://github.com/norelinorth/ai_assistant)
+- Issues: [GitHub Issues](https://github.com/norelinorth/norelinorth_ai_assistant/issues)
+- Documentation: [GitHub Repository](https://github.com/norelinorth/norelinorth_ai_assistant)
 
 ## Contributing
 

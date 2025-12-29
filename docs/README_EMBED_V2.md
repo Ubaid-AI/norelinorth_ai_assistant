@@ -11,7 +11,7 @@
 ```bash
 cd /path/to/frappe-bench
 bench get-app /ABSOLUTE/PATH/TO/THIS/FOLDER
-bench --site mysite.local install-app ai_assistant
+bench --site mysite.local install-app norelinorth_ai_assistant
 bench --site mysite.local migrate
 bench build --apps ai_assistant
 bench clear-cache

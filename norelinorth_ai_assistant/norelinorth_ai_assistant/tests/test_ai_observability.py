@@ -9,7 +9,7 @@ from unittest.mock import MagicMock, patch
 import frappe
 from frappe.utils.password import set_encrypted_password
 
-from ai_assistant.ai_observability import (
+from norelinorth_ai_assistant.ai_observability import (
 	LANGFUSE_AVAILABLE,
 	flush_langfuse,
 	get_langfuse_client,
@@ -372,7 +372,7 @@ class TestAIObservability(unittest.TestCase):
 		# This test verifies that the fix for import-time frappe.log_error() is working
 
 		# Import the module
-		import ai_assistant.ai_observability
+		import norelinorth_ai_assistant.ai_observability
 
 		# If langfuse is not installed, LANGFUSE_AVAILABLE should be False
 		# but no error logs should be created

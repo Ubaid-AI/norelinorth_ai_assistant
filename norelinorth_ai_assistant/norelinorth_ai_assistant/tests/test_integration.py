@@ -9,13 +9,13 @@ from unittest.mock import MagicMock, patch
 
 import frappe
 
-from ai_assistant.ai_observability import (
+from norelinorth_ai_assistant.ai_observability import (
 	LANGFUSE_AVAILABLE,
 	get_langfuse_client,
 	reset_langfuse_client,
 	validate_langfuse_config,
 )
-from ai_assistant.ai_provider_api import call_ai, get_ai_config, validate_ai_config
+from norelinorth_ai_assistant.ai_provider_api import call_ai, get_ai_config, validate_ai_config
 
 
 class TestIntegration(unittest.TestCase):

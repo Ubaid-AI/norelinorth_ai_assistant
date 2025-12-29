@@ -15,7 +15,7 @@ The AI Provider Resolver is a centralized service that allows any app in your Fr
 ### 1. Get AI Configuration
 ```python
 # Python (server-side)
-from ai_assistant.ai_provider_resolver import get_ai_config
+from norelinorth_ai_assistant.ai_provider_resolver import get_ai_config
 config = get_ai_config()
 
 # Or via frappe.call
@@ -39,7 +39,7 @@ config = frappe.call('ai_assistant.ai_provider_resolver.get_ai_config')
 ### 2. Call AI API
 ```python
 # Simple call
-from ai_assistant.ai_provider_resolver import call_ai
+from norelinorth_ai_assistant.ai_provider_resolver import call_ai
 response = call_ai("What is the capital of France?")
 
 # With context
@@ -58,7 +58,7 @@ response = call_ai(
 
 ### 3. Validate AI Setup
 ```python
-from ai_assistant.ai_provider_resolver import validate_ai_setup
+from norelinorth_ai_assistant.ai_provider_resolver import validate_ai_setup
 validation = validate_ai_setup()
 
 # Returns validation status
@@ -79,7 +79,7 @@ validation = validate_ai_setup()
 # In your_app/your_module/doctype/your_doctype/your_doctype.py
 
 import frappe
-from ai_assistant.ai_provider_resolver import AIProviderResolver
+from norelinorth_ai_assistant.ai_provider_resolver import AIProviderResolver
 
 class YourDocType(Document):
     def validate(self):
@@ -168,7 +168,7 @@ function callAI(frm) {
 # In your_app/your_module/report/your_report/your_report.py
 
 def execute(filters=None):
-    from ai_assistant.ai_provider_resolver import AIProviderResolver
+    from norelinorth_ai_assistant.ai_provider_resolver import AIProviderResolver
     
     # Get report data
     data = get_report_data(filters)

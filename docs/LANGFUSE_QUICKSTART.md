@@ -25,7 +25,7 @@ All AI calls are now automatically traced to Langfuse.
 
 **Before Langfuse:**
 ```python
-from ai_assistant.ai_provider_api import call_ai
+from norelinorth_ai_assistant.ai_provider_api import call_ai
 
 response = call_ai(
     prompt="Analyze this data",
@@ -36,7 +36,7 @@ response = call_ai(
 **After Langfuse:**
 ```python
 # EXACT SAME CODE - automatically traced! 🚀
-from ai_assistant.ai_provider_api import call_ai
+from norelinorth_ai_assistant.ai_provider_api import call_ai
 
 response = call_ai(
     prompt="Analyze this data",
@@ -73,7 +73,7 @@ That's it. No imports, no wrappers, no changes.
 
 ```python
 # Run in bench console
-from ai_assistant.ai_provider_api import call_ai
+from norelinorth_ai_assistant.ai_provider_api import call_ai
 
 # Make a test call
 response = call_ai(prompt="What is 2+2?")
@@ -86,7 +86,7 @@ print(response)
 
 ```python
 # Run in bench console
-from ai_assistant.ai_observability import validate_langfuse_config
+from norelinorth_ai_assistant.ai_observability import validate_langfuse_config
 
 status = validate_langfuse_config()
 print(status)
@@ -118,7 +118,7 @@ print(status)
 
 ```python
 # Your code (no Langfuse imports needed!)
-from ai_assistant.ai_provider_api import call_ai
+from norelinorth_ai_assistant.ai_provider_api import call_ai
 
 def validate_journal(doc):
     response = call_ai(
@@ -173,7 +173,7 @@ In Langfuse dashboard:
 
 1. **Check configuration:**
    ```python
-   from ai_assistant.ai_observability import validate_langfuse_config
+   from norelinorth_ai_assistant.ai_observability import validate_langfuse_config
    print(validate_langfuse_config())
    ```
 

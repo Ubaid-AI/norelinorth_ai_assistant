@@ -13,7 +13,7 @@ cd frappe-bench
 ### 1. Install the App
 ```bash
 cd frappe-bench
-bench --site working.local.2 install-app ai_assistant
+bench --site working.local.2 install-app norelinorth_ai_assistant
 bench --site working.local.2 migrate
 ```
 

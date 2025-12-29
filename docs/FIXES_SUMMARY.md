@@ -305,7 +305,7 @@ Before marketplace submission, test installation on a fresh site:
 bench new-site test-ai-assistant.local
 
 # Install app
-bench --site test-ai-assistant.local install-app ai_assistant
+bench --site test-ai-assistant.local install-app norelinorth_ai_assistant
 
 # Run tests
 bench --site test-ai-assistant.local run-tests --app ai_assistant

@@ -11,7 +11,7 @@ The AI Assistant app now implements **standard Langfuse columns** for easy filte
 All apps using the `call_ai()` function should now pass a `source` parameter to identify themselves:
 
 ```python
-from ai_assistant.ai_provider_api import call_ai
+from norelinorth_ai_assistant.ai_provider_api import call_ai
 
 # Example: AI Assistant
 response = call_ai(

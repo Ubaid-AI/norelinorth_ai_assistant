@@ -8,7 +8,7 @@ from unittest.mock import MagicMock, patch
 
 import frappe
 
-from ai_assistant.ai_provider_resolver import (
+from norelinorth_ai_assistant.ai_provider_resolver import (
 	AIProviderResolver,
 	call_ai,
 	get_ai_config,

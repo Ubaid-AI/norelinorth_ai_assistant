@@ -104,7 +104,7 @@ cd /Users/christian.haeussinger/Desktop/ERPNext-Fresh/frappe-bench
 bench new-site test-ai.local
 
 # Install from local directory
-bench --site test-ai.local install-app ai_assistant
+bench --site test-ai.local install-app norelinorth_ai_assistant
 
 # Run tests
 bench --site test-ai.local run-tests --app ai_assistant
@@ -115,7 +115,7 @@ bench --site test-ai.local run-tests --app ai_assistant
 ```bash
 # Install from tarball
 bench get-app /path/to/dist/ai_assistant-2.1.1.tar.gz
-bench --site test-ai.local install-app ai_assistant
+bench --site test-ai.local install-app norelinorth_ai_assistant
 
 # Verify
 bench --site test-ai.local list-apps

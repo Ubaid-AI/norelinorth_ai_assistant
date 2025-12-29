@@ -7,7 +7,7 @@ variance_analysis app's expected callable interface.
 Installation:
 1. This file is automatically installed with the ai_assistant app
 2. Configure in site_config.json:
-   "ai_provider_callable": "ai_assistant.ai_provider_wrapper.generate_text"
+   "ai_provider_callable": "norelinorth_ai_assistant.ai_provider_wrapper.generate_text"
 3. Set API key using: bench --site {site} set-password "AI Provider" "AI Provider" --fieldname api_key
 """
 
@@ -16,7 +16,7 @@ import frappe
 from frappe import _
 from frappe.utils.password import get_decrypted_password
 
-from ai_assistant.ai_provider_resolver import AIProviderResolver
+from norelinorth_ai_assistant.ai_provider_resolver import AIProviderResolver
 
 
 def generate_text(prompt: str, **kwargs) -> str:
@@ -24,7 +24,7 @@ def generate_text(prompt: str, **kwargs) -> str:
 	Generate text using AI Provider configuration.
 
 	This function is called by variance_analysis app via site_config.json
-	setting: "ai_provider_callable": "ai_assistant.ai_provider_wrapper.generate_text"
+	setting: "ai_provider_callable": "norelinorth_ai_assistant.ai_provider_wrapper.generate_text"
 
 	Args:
 		prompt: The text prompt to send to the AI

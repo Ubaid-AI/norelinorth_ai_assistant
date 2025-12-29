@@ -8,7 +8,7 @@ from unittest.mock import MagicMock, patch
 
 import frappe
 
-from ai_assistant.ai_assistant.page.ai_chat.ai_chat import (
+from norelinorth_ai_assistant.ai_assistant.page.ai_chat.ai_chat import (
 	get_available_doctypes,
 	get_recent_sessions,
 	get_session_messages,

@@ -38,7 +38,7 @@ cd frappe-bench
 bench get-app ai_assistant
 
 # Install on a site
-bench --site yoursite.local install-app ai_assistant
+bench --site yoursite.local install-app norelinorth_ai_assistant
 
 # Run tests
 bench --site yoursite.local run-tests --app ai_assistant

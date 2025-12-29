@@ -7,7 +7,7 @@ import frappe
 from frappe import _
 from frappe.utils import now_datetime
 
-from ai_assistant.ai_provider_api import call_ai, get_ai_config
+from norelinorth_ai_assistant.ai_provider_api import call_ai, get_ai_config
 
 
 @frappe.whitelist()

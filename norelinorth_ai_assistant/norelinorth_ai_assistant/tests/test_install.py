@@ -8,7 +8,7 @@ from unittest.mock import MagicMock, patch
 
 import frappe
 
-from ai_assistant.install import (
+from norelinorth_ai_assistant.install import (
 	REQUIRED_ROLES,
 	after_install,
 	create_ai_provider_singleton,

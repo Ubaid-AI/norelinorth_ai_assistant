@@ -13,7 +13,7 @@ import requests
 from frappe import _
 from frappe.utils.password import get_decrypted_password
 
-from ai_assistant.ai_observability import get_langfuse_client
+from norelinorth_ai_assistant.ai_observability import get_langfuse_client
 
 
 @frappe.whitelist()

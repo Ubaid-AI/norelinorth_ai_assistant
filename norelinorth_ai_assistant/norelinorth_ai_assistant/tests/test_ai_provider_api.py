@@ -10,7 +10,7 @@ from unittest.mock import MagicMock, patch
 import frappe
 from frappe.utils.password import set_encrypted_password
 
-from ai_assistant.ai_provider_api import call_ai, get_ai_config, validate_ai_config
+from norelinorth_ai_assistant.ai_provider_api import call_ai, get_ai_config, validate_ai_config
 
 
 class TestAIProviderAPI(unittest.TestCase):

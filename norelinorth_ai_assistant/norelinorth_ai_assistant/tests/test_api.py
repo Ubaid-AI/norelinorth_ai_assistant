@@ -8,7 +8,7 @@ from unittest.mock import MagicMock, patch
 
 import frappe
 
-from ai_assistant.api import (
+from norelinorth_ai_assistant.api import (
 	_extract_context,
 	chat_once,
 	get_provider_config,

@@ -4,7 +4,7 @@ with open("requirements.txt") as f:
     install_requires = f.read().strip().split("\n")
 
 setup(
-    name="erpnext_ai_assistant",
+    name="norelinorth_ai_assistant",
     version="2.2.0",
     description="Embedded AI Assistant inside ERPNext DocTypes with Langfuse observability",
     author="Noreli North",

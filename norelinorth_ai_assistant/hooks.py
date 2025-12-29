@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-app_name = "erpnext_ai_assistant"
+app_name = "norelinorth_ai_assistant"
 app_title = "AI Assistant"
 app_publisher = "Noreli North"
 app_description = "Embedded AI Assistant inside ERPNext DocTypes with Langfuse observability."
@@ -10,7 +10,7 @@ app_version = "2.2.0"
 
 required_apps = ["frappe"]
 
-after_install = "ai_assistant.install.after_install"
+after_install = "norelinorth_ai_assistant.install.after_install"
 
 user_data_fields = [
     {"doctype": "AI Assistant Session", "filter_by": "owner", "redact_fields": [], "partial": 1},
@@ -20,29 +20,29 @@ user_data_fields = [
 # DocType event hooks for AI Assistant integration
 doc_events = {
     "Sales Order": {
-        "onload": "ai_assistant.doctype_hooks.inject_ai_assistant",
-        "validate": "ai_assistant.doctype_hooks.validate_ai_permission"
+        "onload": "norelinorth_ai_assistant.doctype_hooks.inject_ai_assistant",
+        "validate": "norelinorth_ai_assistant.doctype_hooks.validate_ai_permission"
     },
     "Purchase Order": {
-        "onload": "ai_assistant.doctype_hooks.inject_ai_assistant",
-        "validate": "ai_assistant.doctype_hooks.validate_ai_permission"
+        "onload": "norelinorth_ai_assistant.doctype_hooks.inject_ai_assistant",
+        "validate": "norelinorth_ai_assistant.doctype_hooks.validate_ai_permission"
     },
     "Sales Invoice": {
-        "onload": "ai_assistant.doctype_hooks.inject_ai_assistant",
-        "validate": "ai_assistant.doctype_hooks.validate_ai_permission"
+        "onload": "norelinorth_ai_assistant.doctype_hooks.inject_ai_assistant",
+        "validate": "norelinorth_ai_assistant.doctype_hooks.validate_ai_permission"
     },
     "Purchase Invoice": {
-        "onload": "ai_assistant.doctype_hooks.inject_ai_assistant",
-        "validate": "ai_assistant.doctype_hooks.validate_ai_permission"
+        "onload": "norelinorth_ai_assistant.doctype_hooks.inject_ai_assistant",
+        "validate": "norelinorth_ai_assistant.doctype_hooks.validate_ai_permission"
     },
     "Journal Entry": {
-        "onload": "ai_assistant.doctype_hooks.inject_ai_assistant",
-        "validate": "ai_assistant.doctype_hooks.validate_ai_permission"
+        "onload": "norelinorth_ai_assistant.doctype_hooks.inject_ai_assistant",
+        "validate": "norelinorth_ai_assistant.doctype_hooks.validate_ai_permission"
     }
 }
 
 # Include JS file for client-side integration
-app_include_js = "/assets/ai_assistant/js/ai_assistant_integration.js"
+app_include_js = "/assets/norelinorth_ai_assistant/js/ai_assistant_integration.js"
 
 # Also include in doctype-specific JS
 doctype_js = {
@@ -57,9 +57,9 @@ doctype_js = {
 # These are simple, direct functions without unnecessary class wrappers
 override_whitelisted_methods = {
     # Core AI Provider API - available to all apps
-    "ai_assistant.ai_provider_api.get_ai_config": "ai_assistant.ai_assistant.ai_provider_api.get_ai_config",
-    "ai_assistant.ai_provider_api.call_ai": "ai_assistant.ai_assistant.ai_provider_api.call_ai",
-    "ai_assistant.ai_provider_api.validate_ai_config": "ai_assistant.ai_assistant.ai_provider_api.validate_ai_config",
+    "norelinorth_ai_assistant.ai_provider_api.get_ai_config": "norelinorth_ai_assistant.ai_provider_api.get_ai_config",
+    "norelinorth_ai_assistant.ai_provider_api.call_ai": "norelinorth_ai_assistant.ai_provider_api.call_ai",
+    "norelinorth_ai_assistant.ai_provider_api.validate_ai_config": "norelinorth_ai_assistant.ai_provider_api.validate_ai_config",
 }
 
 # Standard DocType permissions

@@ -167,13 +167,13 @@
 ### From Frappe Marketplace
 ```bash
 bench get-app ai_assistant
-bench --site yoursite.local install-app ai_assistant
+bench --site yoursite.local install-app norelinorth_ai_assistant
 ```
 
 ### From GitHub
 ```bash
 bench get-app https://github.com/noreli-north/ai_assistant
-bench --site yoursite.local install-app ai_assistant
+bench --site yoursite.local install-app norelinorth_ai_assistant
 ```
 
 ### Post-Installation

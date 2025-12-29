@@ -129,7 +129,7 @@ We may update this Privacy Policy. Changes will be posted with an updated "Last 
 For privacy questions or concerns:
 
 - **Email**: honeyspotdaily@gmail.com
-- **GitHub**: https://github.com/norelinorth/ai_assistant/issues
+- **GitHub**: https://github.com/norelinorth/norelinorth_ai_assistant/issues
 
 ---
 

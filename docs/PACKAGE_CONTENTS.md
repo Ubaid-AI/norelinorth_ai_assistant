@@ -94,7 +94,7 @@
 bench get-app ai_assistant
 
 # Install on site
-bench --site yoursite.local install-app ai_assistant
+bench --site yoursite.local install-app norelinorth_ai_assistant
 
 # Configure
 # Go to AI Provider in ERPNext
