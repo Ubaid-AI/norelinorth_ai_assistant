@@ -177,7 +177,7 @@ class TestDocTypeHooks(unittest.TestCase):
 		mock_doc = MagicMock()
 
 		# Simulate error by mocking frappe.get_single to raise
-		with patch('ai_assistant.doctype_hooks.frappe.get_single') as mock_get:
+		with patch('norelinorth_ai_assistant.doctype_hooks.frappe.get_single') as mock_get:
 			mock_get.side_effect = frappe.DoesNotExistError("AI Provider not found")
 
 			# Should not raise, just skip silently
@@ -194,7 +194,7 @@ class TestDocTypeHooks(unittest.TestCase):
 			frappe.db.commit()
 
 		# Simulate generic error
-		with patch('ai_assistant.doctype_hooks.frappe.get_single') as mock_get:
+		with patch('norelinorth_ai_assistant.doctype_hooks.frappe.get_single') as mock_get:
 			mock_get.side_effect = Exception("Generic error")
 
 			# Should not raise, just log error

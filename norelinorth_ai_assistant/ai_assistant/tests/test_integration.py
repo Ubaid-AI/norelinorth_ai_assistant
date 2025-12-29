@@ -57,7 +57,7 @@ class TestIntegration(unittest.TestCase):
 		reset_langfuse_client()
 		frappe.db.rollback()
 
-	@patch('ai_assistant.ai_provider_api.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_api.requests.post')
 	def test_01_complete_workflow_without_tracing(self, mock_post):
 		"""Test complete AI call workflow without Langfuse tracing"""
 		# Mock successful API response
@@ -91,8 +91,8 @@ class TestIntegration(unittest.TestCase):
 		# Verify API was called
 		mock_post.assert_called_once()
 
-	@patch('ai_assistant.ai_observability.Langfuse')
-	@patch('ai_assistant.ai_provider_api.requests.post')
+	@patch('norelinorth_ai_assistant.ai_observability.Langfuse')
+	@patch('norelinorth_ai_assistant.ai_provider_api.requests.post')
 	def test_02_complete_workflow_with_tracing(self, mock_post, mock_langfuse_class):
 		"""Test complete AI call workflow with Langfuse tracing"""
 		if not LANGFUSE_AVAILABLE:
@@ -145,7 +145,7 @@ class TestIntegration(unittest.TestCase):
 		# Verify generation.update was called
 		mock_generation.update.assert_called_once()
 
-	@patch('ai_assistant.ai_provider_api.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_api.requests.post')
 	def test_03_provider_change_workflow(self, mock_post):
 		"""Test changing provider (OpenAI → Anthropic)"""
 		# Mock response
@@ -182,8 +182,8 @@ class TestIntegration(unittest.TestCase):
 		call_args = mock_post.call_args
 		self.assertIn("https://api.anthropic.com/v1", call_args[0][0])
 
-	@patch('ai_assistant.ai_observability.Langfuse')
-	@patch('ai_assistant.ai_provider_api.requests.post')
+	@patch('norelinorth_ai_assistant.ai_observability.Langfuse')
+	@patch('norelinorth_ai_assistant.ai_provider_api.requests.post')
 	def test_04_enable_disable_langfuse_workflow(self, mock_post, mock_langfuse_class):
 		"""Test enabling and disabling Langfuse during runtime"""
 		if not LANGFUSE_AVAILABLE:
@@ -245,7 +245,7 @@ class TestIntegration(unittest.TestCase):
 		validation = validate_langfuse_config()
 		self.assertEqual(validation["status"], "disabled")
 
-	@patch('ai_assistant.ai_provider_api.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_api.requests.post')
 	def test_05_error_recovery_workflow(self, mock_post):
 		"""Test error recovery: API error → fix config → retry"""
 		# Step 1: First call fails (401 unauthorized)
@@ -281,7 +281,7 @@ class TestIntegration(unittest.TestCase):
 		response = call_ai("Test retry")
 		self.assertEqual(response, "Success after fix")
 
-	@patch('ai_assistant.ai_provider_api.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_api.requests.post')
 	def test_06_model_override_workflow(self, mock_post):
 		"""Test using default model vs custom model override"""
 		# Mock response
@@ -307,7 +307,7 @@ class TestIntegration(unittest.TestCase):
 		body = mock_post.call_args[1]["json"]
 		self.assertEqual(body["model"], "gpt-4-turbo")
 
-	@patch('ai_assistant.ai_provider_api.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_api.requests.post')
 	def test_07_context_handling_workflow(self, mock_post):
 		"""Test various context formats (JSON, plain text, None)"""
 		# Mock response
@@ -342,8 +342,8 @@ class TestIntegration(unittest.TestCase):
 		context_found = any("Context:" in m.get("content", "") for m in messages)
 		self.assertTrue(context_found)
 
-	@patch('ai_assistant.ai_observability.Langfuse')
-	@patch('ai_assistant.ai_provider_api.requests.post')
+	@patch('norelinorth_ai_assistant.ai_observability.Langfuse')
+	@patch('norelinorth_ai_assistant.ai_provider_api.requests.post')
 	def test_08_langfuse_failure_fallback_workflow(self, mock_post, mock_langfuse_class):
 		"""Test graceful degradation when Langfuse tracing fails"""
 		if not LANGFUSE_AVAILABLE:
@@ -380,7 +380,7 @@ class TestIntegration(unittest.TestCase):
 		# Should get response despite Langfuse failure
 		self.assertEqual(response, "Response without tracing")
 
-	@patch('ai_assistant.ai_provider_api.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_api.requests.post')
 	def test_09_inactive_to_active_workflow(self, mock_post):
 		"""Test activating an inactive provider"""
 		# Step 1: Deactivate provider
@@ -418,7 +418,7 @@ class TestIntegration(unittest.TestCase):
 		response = call_ai("Test after activation")
 		self.assertEqual(response, "Success after activation")
 
-	@patch('ai_assistant.ai_provider_api.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_api.requests.post')
 	def test_10_azure_openai_integration_workflow(self, mock_post):
 		"""Test complete workflow with Azure OpenAI configuration"""
 		# Configure for Azure OpenAI

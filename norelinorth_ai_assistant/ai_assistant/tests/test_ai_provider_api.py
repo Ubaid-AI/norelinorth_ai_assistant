@@ -118,7 +118,7 @@ class TestAIProviderAPI(unittest.TestCase):
 
 		self.assertFalse(result["configured"])
 
-	@patch('ai_assistant.ai_provider_api.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_api.requests.post')
 	def test_07_call_ai_success(self, mock_post):
 		"""Test call_ai() with successful API response"""
 		# Mock successful API response
@@ -165,7 +165,7 @@ class TestAIProviderAPI(unittest.TestCase):
 		self.assertEqual(body["max_tokens"], 2000)
 		self.assertIn("messages", body)
 
-	@patch('ai_assistant.ai_provider_api.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_api.requests.post')
 	def test_08_call_ai_with_context(self, mock_post):
 		"""Test call_ai() with context parameter"""
 		# Mock response
@@ -199,7 +199,7 @@ class TestAIProviderAPI(unittest.TestCase):
 				break
 		self.assertTrue(context_found, "Context not found in messages")
 
-	@patch('ai_assistant.ai_provider_api.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_api.requests.post')
 	def test_09_call_ai_with_model_override(self, mock_post):
 		"""Test call_ai() with model parameter override"""
 		# Mock response
@@ -266,7 +266,7 @@ class TestAIProviderAPI(unittest.TestCase):
 		"""Test that model parameter overrides default model"""
 		# Now that default_model is required, test that override still works
 		# Mock response
-		with patch('ai_assistant.ai_provider_api.requests.post') as mock_post:
+		with patch('norelinorth_ai_assistant.ai_provider_api.requests.post') as mock_post:
 			mock_response = MagicMock()
 			mock_response.status_code = 200
 			mock_response.json.return_value = {
@@ -282,7 +282,7 @@ class TestAIProviderAPI(unittest.TestCase):
 			body = mock_post.call_args[1]["json"]
 			self.assertEqual(body["model"], "gpt-4-turbo")
 
-	@patch('ai_assistant.ai_provider_api.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_api.requests.post')
 	def test_15_call_ai_timeout(self, mock_post):
 		"""Test call_ai() handles timeout errors"""
 		# Mock timeout
@@ -297,7 +297,7 @@ class TestAIProviderAPI(unittest.TestCase):
 		error_msg = str(context.exception).lower()
 		self.assertTrue("timeout" in error_msg or "timed out" in error_msg)
 
-	@patch('ai_assistant.ai_provider_api.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_api.requests.post')
 	def test_16_call_ai_http_401_unauthorized(self, mock_post):
 		"""Test call_ai() handles 401 unauthorized errors"""
 		# Mock 401 error
@@ -313,7 +313,7 @@ class TestAIProviderAPI(unittest.TestCase):
 
 		self.assertIn("api key", str(context.exception).lower())
 
-	@patch('ai_assistant.ai_provider_api.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_api.requests.post')
 	def test_17_call_ai_http_429_rate_limit(self, mock_post):
 		"""Test call_ai() handles 429 rate limit errors"""
 		# Mock 429 error
@@ -329,7 +329,7 @@ class TestAIProviderAPI(unittest.TestCase):
 
 		self.assertIn("rate limit", str(context.exception).lower())
 
-	@patch('ai_assistant.ai_provider_api.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_api.requests.post')
 	def test_18_call_ai_invalid_response(self, mock_post):
 		"""Test call_ai() handles invalid API responses"""
 		# Mock invalid response (no choices)
@@ -365,7 +365,7 @@ class TestAIProviderAPI(unittest.TestCase):
 
 	def test_20_context_plain_text(self):
 		"""Test call_ai() handles plain text context (not JSON)"""
-		with patch('ai_assistant.ai_provider_api.requests.post') as mock_post:
+		with patch('norelinorth_ai_assistant.ai_provider_api.requests.post') as mock_post:
 			mock_response = MagicMock()
 			mock_response.status_code = 200
 			mock_response.json.return_value = {

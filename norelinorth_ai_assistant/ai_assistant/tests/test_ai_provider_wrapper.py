@@ -46,7 +46,7 @@ class TestAIProviderWrapper(unittest.TestCase):
 		"""Clean up after each test"""
 		frappe.db.rollback()
 
-	@patch('ai_assistant.ai_provider_wrapper.AIProviderResolver')
+	@patch('norelinorth_ai_assistant.ai_provider_wrapper.AIProviderResolver')
 	def test_01_generate_text_success(self, mock_resolver_class):
 		"""Test successful text generation"""
 		mock_resolver = MagicMock()
@@ -81,7 +81,7 @@ class TestAIProviderWrapper(unittest.TestCase):
 
 		self.assertIn("api key", result.lower())
 
-	@patch('ai_assistant.ai_provider_wrapper.AIProviderResolver')
+	@patch('norelinorth_ai_assistant.ai_provider_wrapper.AIProviderResolver')
 	def test_04_generate_text_with_context(self, mock_resolver_class):
 		"""Test generate_text with context parameter"""
 		mock_resolver = MagicMock()
@@ -95,7 +95,7 @@ class TestAIProviderWrapper(unittest.TestCase):
 		call_args = mock_resolver.call_ai_api.call_args
 		self.assertEqual(call_args.kwargs.get("context"), {"key": "value"})
 
-	@patch('ai_assistant.ai_provider_wrapper.AIProviderResolver')
+	@patch('norelinorth_ai_assistant.ai_provider_wrapper.AIProviderResolver')
 	def test_05_generate_text_with_system_message(self, mock_resolver_class):
 		"""Test generate_text with system message"""
 		mock_resolver = MagicMock()
@@ -108,7 +108,7 @@ class TestAIProviderWrapper(unittest.TestCase):
 		call_args = mock_resolver.call_ai_api.call_args
 		self.assertEqual(call_args.kwargs.get("system_message"), "Be helpful")
 
-	@patch('ai_assistant.ai_provider_wrapper.AIProviderResolver')
+	@patch('norelinorth_ai_assistant.ai_provider_wrapper.AIProviderResolver')
 	def test_06_generate_text_api_error(self, mock_resolver_class):
 		"""Test generate_text handles API errors gracefully"""
 		mock_resolver = MagicMock()
@@ -120,7 +120,7 @@ class TestAIProviderWrapper(unittest.TestCase):
 		# Should return error message, not raise exception
 		self.assertIn("failed", result.lower())
 
-	@patch('ai_assistant.ai_provider_wrapper.AIProviderResolver')
+	@patch('norelinorth_ai_assistant.ai_provider_wrapper.AIProviderResolver')
 	def test_07_generate_text_permission_error(self, mock_resolver_class):
 		"""Test generate_text handles permission errors"""
 		mock_resolver = MagicMock()
@@ -131,7 +131,7 @@ class TestAIProviderWrapper(unittest.TestCase):
 
 		self.assertIn("permission", result.lower())
 
-	@patch('ai_assistant.ai_provider_wrapper.AIProviderResolver')
+	@patch('norelinorth_ai_assistant.ai_provider_wrapper.AIProviderResolver')
 	def test_08_call_ai_alias(self, mock_resolver_class):
 		"""Test call_ai is alias for generate_text"""
 		mock_resolver = MagicMock()
@@ -145,12 +145,12 @@ class TestAIProviderWrapper(unittest.TestCase):
 	def test_09_generate_text_provider_not_exists(self):
 		"""Test generate_text when AI Provider doesn't exist"""
 		# This shouldn't happen in normal operation, but test graceful handling
-		with patch('ai_assistant.ai_provider_wrapper.frappe.db.exists', return_value=False):
+		with patch('norelinorth_ai_assistant.ai_provider_wrapper.frappe.db.exists', return_value=False):
 			result = generate_text("Test prompt")
 
 		self.assertIn("not configured", result.lower())
 
-	@patch('ai_assistant.ai_provider_wrapper.AIProviderResolver')
+	@patch('norelinorth_ai_assistant.ai_provider_wrapper.AIProviderResolver')
 	def test_10_generate_text_uses_default_model(self, mock_resolver_class):
 		"""Test generate_text uses provider's default model"""
 		mock_resolver = MagicMock()

@@ -128,7 +128,7 @@ class TestAIObservability(unittest.TestCase):
 		# Should return None (no hardcoded fallback)
 		self.assertIsNone(client)
 
-	@patch('ai_assistant.ai_observability.LANGFUSE_AVAILABLE', False)
+	@patch('norelinorth_ai_assistant.ai_observability.LANGFUSE_AVAILABLE', False)
 	def test_06_get_client_langfuse_not_installed(self):
 		"""Test get_langfuse_client() when langfuse package not installed"""
 		# Mock LANGFUSE_AVAILABLE as False
@@ -137,7 +137,7 @@ class TestAIObservability(unittest.TestCase):
 		# Should return None gracefully (no error logs)
 		self.assertIsNone(client)
 
-	@patch('ai_assistant.ai_observability.Langfuse')
+	@patch('norelinorth_ai_assistant.ai_observability.Langfuse')
 	def test_07_get_client_success(self, mock_langfuse_class):
 		"""Test get_langfuse_client() successfully initializes client"""
 		if not LANGFUSE_AVAILABLE:
@@ -170,7 +170,7 @@ class TestAIObservability(unittest.TestCase):
 		self.assertIsNotNone(client)
 		self.assertEqual(client, mock_client_instance)
 
-	@patch('ai_assistant.ai_observability.Langfuse')
+	@patch('norelinorth_ai_assistant.ai_observability.Langfuse')
 	def test_08_get_client_caching(self, mock_langfuse_class):
 		"""Test get_langfuse_client() caches client instance"""
 		if not LANGFUSE_AVAILABLE:
@@ -213,7 +213,7 @@ class TestAIObservability(unittest.TestCase):
 		# Should not raise error
 		flush_langfuse()
 
-	@patch('ai_assistant.ai_observability.Langfuse')
+	@patch('norelinorth_ai_assistant.ai_observability.Langfuse')
 	def test_11_flush_langfuse_with_client(self, mock_langfuse_class):
 		"""Test flush_langfuse() calls client.flush()"""
 		if not LANGFUSE_AVAILABLE:
@@ -265,7 +265,7 @@ class TestAIObservability(unittest.TestCase):
 		self.assertFalse(result["configured"])
 		self.assertEqual(result["status"], "incomplete")
 
-	@patch('ai_assistant.ai_observability.Langfuse')
+	@patch('norelinorth_ai_assistant.ai_observability.Langfuse')
 	def test_14_validate_langfuse_config_active(self, mock_langfuse_class):
 		"""Test validate_langfuse_config() with complete configuration"""
 		if not LANGFUSE_AVAILABLE:
@@ -303,7 +303,7 @@ class TestAIObservability(unittest.TestCase):
 		# Reset to Administrator
 		frappe.set_user("Administrator")
 
-	@patch('ai_assistant.ai_observability.Langfuse')
+	@patch('norelinorth_ai_assistant.ai_observability.Langfuse')
 	def test_16_get_client_initialization_error(self, mock_langfuse_class):
 		"""Test get_langfuse_client() handles initialization errors"""
 		if not LANGFUSE_AVAILABLE:
@@ -337,7 +337,7 @@ class TestAIObservability(unittest.TestCase):
 		# Default should be set in DocType JSON (not Python code)
 		self.assertEqual(provider.langfuse_host, "https://cloud.langfuse.com")
 
-	@patch('ai_assistant.ai_observability.Langfuse')
+	@patch('norelinorth_ai_assistant.ai_observability.Langfuse')
 	def test_18_flush_error_handling(self, mock_langfuse_class):
 		"""Test flush_langfuse() handles flush errors gracefully"""
 		if not LANGFUSE_AVAILABLE:
@@ -376,12 +376,12 @@ class TestAIObservability(unittest.TestCase):
 
 		# If langfuse is not installed, LANGFUSE_AVAILABLE should be False
 		# but no error logs should be created
-		self.assertIsInstance(ai_assistant.ai_observability.LANGFUSE_AVAILABLE, bool)
+		self.assertIsInstance(norelinorth_ai_assistant.ai_observability.LANGFUSE_AVAILABLE, bool)
 
 		# The module should import successfully without exceptions
 		self.assertTrue(True)  # If we got here, import succeeded
 
-	@patch('ai_assistant.ai_observability.Langfuse')
+	@patch('norelinorth_ai_assistant.ai_observability.Langfuse')
 	def test_20_multiple_reset_and_reinit(self, mock_langfuse_class):
 		"""Test multiple reset and re-initialization cycles"""
 		if not LANGFUSE_AVAILABLE:

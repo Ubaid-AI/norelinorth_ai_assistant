@@ -122,7 +122,7 @@ class TestAIProviderResolver(unittest.TestCase):
 
 		frappe.set_user("Administrator")
 
-	@patch('ai_assistant.ai_provider_resolver.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_resolver.requests.post')
 	def test_08_call_ai_api_success(self, mock_post):
 		"""Test successful AI API call"""
 		mock_response = MagicMock()
@@ -137,7 +137,7 @@ class TestAIProviderResolver(unittest.TestCase):
 		self.assertEqual(result, "Test response")
 		mock_post.assert_called_once()
 
-	@patch('ai_assistant.ai_provider_resolver.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_resolver.requests.post')
 	def test_09_call_ai_api_with_context(self, mock_post):
 		"""Test AI API call with context"""
 		mock_response = MagicMock()
@@ -160,7 +160,7 @@ class TestAIProviderResolver(unittest.TestCase):
 		# Should have system, context, and user messages
 		self.assertGreaterEqual(len(messages), 3)
 
-	@patch('ai_assistant.ai_provider_resolver.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_resolver.requests.post')
 	def test_10_call_ai_api_timeout(self, mock_post):
 		"""Test AI API handles timeout"""
 		import requests
@@ -220,7 +220,7 @@ class TestAIProviderResolver(unittest.TestCase):
 		self.assertIsNotNone(config)
 		self.assertIn("provider", config)
 
-	@patch('ai_assistant.ai_provider_resolver.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_resolver.requests.post')
 	def test_16_shorthand_call_ai(self, mock_post):
 		"""Test shorthand call_ai function"""
 		mock_response = MagicMock()
@@ -234,7 +234,7 @@ class TestAIProviderResolver(unittest.TestCase):
 
 		self.assertEqual(result, "Shorthand response")
 
-	@patch('ai_assistant.ai_provider_resolver.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_resolver.requests.post')
 	def test_17_shorthand_call_ai_with_json_context(self, mock_post):
 		"""Test call_ai with JSON string context"""
 		mock_response = MagicMock()
@@ -250,7 +250,7 @@ class TestAIProviderResolver(unittest.TestCase):
 
 		self.assertEqual(result, "Response")
 
-	@patch('ai_assistant.ai_provider_resolver.requests.post')
+	@patch('norelinorth_ai_assistant.ai_provider_resolver.requests.post')
 	def test_18_shorthand_call_ai_with_text_context(self, mock_post):
 		"""Test call_ai with plain text context"""
 		mock_response = MagicMock()

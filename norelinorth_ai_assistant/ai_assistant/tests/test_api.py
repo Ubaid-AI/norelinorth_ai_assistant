@@ -96,7 +96,7 @@ class TestAPI(unittest.TestCase):
 
 		frappe.set_user("Administrator")
 
-	@patch('ai_assistant.api.call_ai')
+	@patch('norelinorth_ai_assistant.api.call_ai')
 	def test_05_chat_once_success(self, mock_call_ai):
 		"""Test successful chat message"""
 		mock_call_ai.return_value = "This is a test response"
@@ -141,7 +141,7 @@ class TestAPI(unittest.TestCase):
 
 		frappe.set_user("Administrator")
 
-	@patch('ai_assistant.api.call_ai')
+	@patch('norelinorth_ai_assistant.api.call_ai')
 	def test_09_chat_once_with_context(self, mock_call_ai):
 		"""Test chat with document context"""
 		mock_call_ai.return_value = "Response with context"
@@ -203,7 +203,7 @@ class TestAPI(unittest.TestCase):
 
 		frappe.set_user("Administrator")
 
-	@patch('ai_assistant.api.call_ai')
+	@patch('norelinorth_ai_assistant.api.call_ai')
 	def test_15_chat_ai_error_handling(self, mock_call_ai):
 		"""Test chat handles AI errors gracefully"""
 		mock_call_ai.side_effect = Exception("API Error")
