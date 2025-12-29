@@ -111,3 +111,4 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for version history.
+
