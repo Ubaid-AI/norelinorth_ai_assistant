@@ -1,6 +1,6 @@
 [project]
 name = "norelinorth_ai_assistant"
-version = "2.2.1"
+version = "2.2.2"
 description = "Embedded AI Assistant inside ERPNext DocTypes with Langfuse observability"
 authors = [
     {name = "Noreli North", email = "honeyspotdaily@gmail.com"}
@@ -24,10 +24,10 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/norelinorth/ai_assistant"
-Documentation = "https://github.com/norelinorth/ai_assistant#readme"
-Repository = "https://github.com/norelinorth/ai_assistant"
-Changelog = "https://github.com/norelinorth/ai_assistant/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/norelinorth/norelinorth_ai_assistant"
+Documentation = "https://github.com/norelinorth/norelinorth_ai_assistant#readme"
+Repository = "https://github.com/norelinorth/norelinorth_ai_assistant"
+Changelog = "https://github.com/norelinorth/norelinorth_ai_assistant/blob/main/CHANGELOG.md"
 
 [build-system]
 requires = ["flit_core >=3.4,<4"]

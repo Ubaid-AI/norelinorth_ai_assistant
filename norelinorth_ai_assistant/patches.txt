@@ -1,1 +1,2 @@
-ai_assistant.patches.bootinfo_patch
+norelinorth_ai_assistant.patches.migrate_from_old_app_name
+norelinorth_ai_assistant.patches.bootinfo_patch

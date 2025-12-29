@@ -2,6 +2,21 @@
 
 All notable changes to the AI Assistant app will be documented in this file.
 
+## [2.2.2] - 2025-12-29
+
+### Fixed
+- **CRITICAL: Module Loading Error** - Fixed `ModuleNotFoundError: No module named 'ai_assistant'`
+  - Added migration patch to clean up old 'ai_assistant' references in database
+  - Fixed `installed_apps` global in `tabDefaultValue` table
+  - Updated `patches.txt` to use correct module paths
+  - Fixed `bootinfo_patch.py` to reference new app name
+
+### Changed
+- **Patches Module Path** - Updated all patches to use `norelinorth_ai_assistant.patches.*`
+- **Module Def Update** - Migration patch now ensures correct `app_name` in Module Def
+
+---
+
 ## [2.2.0] - 2025-12-29
 
 ### Added
