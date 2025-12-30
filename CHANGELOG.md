@@ -2,6 +2,16 @@
 
 All notable changes to the AI Assistant app will be documented in this file.
 
+## [2.2.8] - 2025-12-30
+
+### Fixed
+- **GitHub Actions CI** - Add app to apps.txt
+  - Added `echo "norelinorth_ai_assistant" >> sites/apps.txt`
+  - This is required because manual pip install bypasses bench's app registration
+  - Fixes "App norelinorth_ai_assistant not in apps.txt" error
+
+---
+
 ## [2.2.7] - 2025-12-30
 
 ### Fixed

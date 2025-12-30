@@ -98,6 +98,8 @@ jobs:
           # Clone app and install with pip --no-deps to avoid uv dependency issues
           git clone $GITHUB_WORKSPACE apps/norelinorth_ai_assistant
           ./env/bin/pip install -e apps/norelinorth_ai_assistant --no-deps
+          # Add app to apps.txt (bench get-app does this, but we skipped it)
+          echo "norelinorth_ai_assistant" >> sites/apps.txt
           bench setup requirements --dev
           bench new-site --db-root-password root --admin-password admin test_site
           bench --site test_site install-app erpnext
