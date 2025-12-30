@@ -2,6 +2,16 @@
 
 All notable changes to the AI Assistant app will be documented in this file.
 
+## [2.2.7] - 2025-12-30
+
+### Fixed
+- **GitHub Actions CI** - Manual pip install with --no-deps
+  - Clone app manually and use `pip install -e --no-deps`
+  - Bypasses uv package manager completely
+  - Fixes gunicorn URL dependency resolution error
+
+---
+
 ## [2.2.6] - 2025-12-30
 
 ### Fixed

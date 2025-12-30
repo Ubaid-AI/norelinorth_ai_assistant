@@ -95,7 +95,9 @@ jobs:
         working-directory: /home/runner/frappe-bench
         run: |
           bench get-app erpnext --branch version-15
-          bench get-app norelinorth_ai_assistant $GITHUB_WORKSPACE
+          # Clone app and install with pip --no-deps to avoid uv dependency issues
+          git clone $GITHUB_WORKSPACE apps/norelinorth_ai_assistant
+          ./env/bin/pip install -e apps/norelinorth_ai_assistant --no-deps
           bench setup requirements --dev
           bench new-site --db-root-password root --admin-password admin test_site
           bench --site test_site install-app erpnext
@@ -103,7 +105,6 @@ jobs:
           bench build
         env:
           CI: 'Yes'
-          BENCH_USE_UV: '0'
 
       - name: Run Tests
         working-directory: /home/runner/frappe-bench
