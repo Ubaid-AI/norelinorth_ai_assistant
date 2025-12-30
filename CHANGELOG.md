@@ -2,6 +2,17 @@
 
 All notable changes to the AI Assistant app will be documented in this file.
 
+## [2.2.10] - 2025-12-30
+
+### Fixed
+- **Test Fixes** - Fix 10 errors and 3 failures in CI tests
+  - Install `langfuse>=2.0.0` in CI (required for mock tests)
+  - Set `langfuse_host` default in install.py (Frappe new_doc doesn't apply JSON defaults)
+  - Fixes "module does not have attribute Langfuse" mock errors
+  - Fixes "langfuse_host == '' != 'https://cloud.langfuse.com'" assertion failures
+
+---
+
 ## [2.2.9] - 2025-12-30
 
 ### Fixed

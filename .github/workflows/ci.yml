@@ -98,6 +98,8 @@ jobs:
           # Clone app and install with pip --no-deps to avoid uv dependency issues
           git clone $GITHUB_WORKSPACE apps/norelinorth_ai_assistant
           ./env/bin/pip install -e apps/norelinorth_ai_assistant --no-deps
+          # Install langfuse separately (required for tests, skipped by --no-deps)
+          ./env/bin/pip install langfuse>=2.0.0
           # Add app to apps.txt (bench get-app does this, but we skipped it)
           # Use printf with \n to ensure proper newline handling
           printf "\nnorelinorth_ai_assistant\n" >> sites/apps.txt

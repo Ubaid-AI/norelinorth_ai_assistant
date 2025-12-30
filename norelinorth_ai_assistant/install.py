@@ -63,9 +63,8 @@ def create_ai_provider_singleton():
             # Set provider to OpenAI as default option but leave configuration empty
             ai_provider.provider = "OpenAI"
             ai_provider.is_active = 0  # Disabled by default until configured
-            # Don't set defaults - let user configure these
-            # ai_provider.default_model = ""  # User will configure
-            # ai_provider.api_key = ""  # User must provide
+            # Set Langfuse defaults (frappe.new_doc doesn't always apply JSON defaults)
+            ai_provider.langfuse_host = "https://cloud.langfuse.com"
             ai_provider.flags.ignore_permissions = True
             ai_provider.flags.ignore_mandatory = True
             ai_provider.insert()
