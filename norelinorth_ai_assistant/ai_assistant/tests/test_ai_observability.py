@@ -330,12 +330,14 @@ class TestAIObservability(unittest.TestCase):
 		self.assertIsNone(client)
 
 	def test_17_langfuse_host_default_value(self):
-		"""Test Langfuse host has default value from DocType"""
-		# Fresh provider should have default host
-		provider = frappe.get_single("AI Provider")
+		"""Test Langfuse host has default value defined in DocType"""
+		# Check DocType meta has the default defined
+		# Note: Defaults only apply to NEW documents, not existing singletons
+		meta = frappe.get_meta("AI Provider")
+		langfuse_host_field = meta.get_field("langfuse_host")
 
-		# Default should be set in DocType JSON (not Python code)
-		self.assertEqual(provider.langfuse_host, "https://cloud.langfuse.com")
+		self.assertIsNotNone(langfuse_host_field)
+		self.assertEqual(langfuse_host_field.default, "https://cloud.langfuse.com")
 
 	@patch('norelinorth_ai_assistant.ai_observability.Langfuse')
 	def test_18_flush_error_handling(self, mock_langfuse_class):
