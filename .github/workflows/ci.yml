@@ -21,7 +21,7 @@ jobs:
           - frappe-version: version-15
             python-version: '3.12'
             node-version: 18
-          - frappe-version: version-16
+          - frappe-version: version-16-beta
             python-version: '3.13'
             node-version: 20
 
