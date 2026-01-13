@@ -26,13 +26,6 @@ AI Assistant provides context-aware AI chat capabilities directly within your ER
 - Simple API for any Frappe app to use
 - Langfuse observability for LLM tracing and monitoring
 
-## Installation
-
-```bash
-bench get-app https://github.com/norelinorth/norelinorth_ai_assistant
-bench --site yoursite.local install-app norelinorth_ai_assistant
-```
-
 ## Configuration
 
 ### AI Provider Setup
