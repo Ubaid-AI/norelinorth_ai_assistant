@@ -2,6 +2,14 @@
 
 All notable changes to AI Assistant will be documented in this file.
 
+## [2.4.6] - 2026-01-13
+
+### Changed
+- Updated CI/CD to use stable Frappe v16 (removed beta references)
+- Frappe v16 is now officially stable and fully supported
+
+---
+
 ## [2.4.5] - 2026-01-13
 
 ### Fixed

@@ -22,8 +22,8 @@ jobs:
             erpnext-version: version-15
             python-version: '3.12'
             node-version: 18
-          - frappe-version: version-16-beta
-            erpnext-version: version-16-beta
+          - frappe-version: version-16
+            erpnext-version: version-16
             python-version: '3.14'
             node-version: 24
 
